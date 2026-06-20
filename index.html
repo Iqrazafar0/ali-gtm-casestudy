@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Hassan — Outbound Systems for Early-Stage B2B Startups</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0d0d0d;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray-mid: #e8e8e8;
+      --gray-text: #6b6b6b;
+      --accent: #e55a2b;
+      --accent-dark: #c44a20;
+      --text: #1a1a1a;
+      --section-pad: 80px 24px;
+      --max-w: 760px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; }
+
+    /* NAV */
+    nav {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    /* HERO */
+    .hero {
+      padding: 96px 24px 80px;
+      text-align: center;
+      background: var(--white);
+    }
+    .hero .yc-badge {
+      display: inline-block;
+      background: #fff3ee;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      border: 1px solid #fcd9cb;
+      letter-spacing: 0.2px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: var(--black);
+      max-width: 680px;
+      margin: 0 auto 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p.sub {
+      font-size: 19px;
+      color: var(--gray-text);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border: 1.5px solid var(--gray-mid);
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #aaa; }
+    .hero-note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    /* SOCIAL PROOF BAR */
+    .proof-bar {
+      background: var(--gray-light);
+      border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid);
+      padding: 18px 24px;
+      text-align: center;
+    }
+    .proof-bar p {
+      font-size: 14px;
+      color: var(--gray-text);
+    }
+    .proof-bar strong { color: var(--text); }
+
+    /* PROBLEM */
+    .problem {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .section-label {
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .problem h2 {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.8px;
+      margin-bottom: 24px;
+    }
+    .problem p {
+      color: var(--gray-text);
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+    .problem-list {
+      list-style: none;
+      margin-top: 32px;
+      display: grid;
+      gap: 16px;
+    }
+    .problem-list li {
+      background: var(--gray-light);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    /* WHAT WE DO */
+    .services {
+      padding: var(--section-pad);
+      background: var(--black);
+      color: var(--white);
+    }
+    .services .section-label { color: #e8956e; }
+    .services h2 {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+    .services p.intro {
+      color: #aaa;
+      margin-bottom: 36px;
+      font-size: 17px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 580px) {
+      .service-grid { grid-template-columns: 1fr; }
+    }
+    .service-item {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 22px;
+    }
+    .service-item .icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .service-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .service-item p {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.55;
+    }
+
+    /* HOW IT WORKS */
+    .process {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .process h2 {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+    .process p.intro {
+      color: var(--gray-text);
+      margin-bottom: 44px;
+    }
+    .steps {
+      display: grid;
+      gap: 0;
+    }
+    .step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding-bottom: 36px;
+      position: relative;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-line {
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: var(--gray-mid);
+    }
+    .step:last-child .step-line { display: none; }
+    .step-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      padding-top: 8px;
+    }
+    .step-body p {
+      font-size: 15px;
+      color: var(--gray-text);
+    }
+    .step-tag {
+      display: inline-block;
+      background: #fff3ee;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* TOOLS */
+    .tools-bar {
+      padding: 32px 24px;
+      background: var(--gray-light);
+      border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid);
+      text-align: center;
+    }
+    .tools-bar p {
+      font-size: 13px;
+      color: var(--gray-text);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+    }
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .tool-badge {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* WHY US */
+    .why {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .why h2 {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+    .why p.intro {
+      color: var(--gray-text);
+      margin-bottom: 40px;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 580px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+    .why-item {
+      background: var(--gray-light);
+      border-radius: 10px;
+      padding: 24px;
+      border: 1px solid var(--gray-mid);
+    }
+    .why-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .why-item p {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* CASE STUDIES */
+    .case-studies {
+      padding: var(--section-pad);
+      background: var(--gray-light);
+    }
+    .case-studies h2 {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+    .case-studies p.intro {
+      color: var(--gray-text);
+      margin-bottom: 48px;
+    }
+    .case-study {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .case-study:last-of-type { margin-bottom: 0; }
+    .cs-header {
+      background: var(--black);
+      color: var(--white);
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cs-header h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .cs-header .cs-type {
+      font-size: 13px;
+      color: #888;
+    }
+    .cs-outcome-badge {
+      background: var(--accent);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-align: center;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .cs-body {
+      padding: 28px;
+    }
+    .cs-row {
+      margin-bottom: 24px;
+    }
+    .cs-row:last-child { margin-bottom: 0; }
+    .cs-row-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .cs-row p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .cs-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .cs-tag {
+      background: var(--gray-light);
+      color: var(--text);
+      font-size: 13px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .cs-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .cs-stat {
+      background: var(--gray-light);
+      border-radius: 8px;
+      padding: 14px 18px;
+      text-align: center;
+      min-width: 100px;
+    }
+    .cs-stat .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .cs-stat .stat-label {
+      font-size: 11px;
+      color: var(--gray-text);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .cs-learning {
+      background: #fff8f5;
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 4px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .cs-learning strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: var(--section-pad);
+      background: var(--accent);
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.85);
+      font-size: 18px;
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--accent);
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 17px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+    .cta-sub {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+    .cta-links {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cta-links a {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding-bottom: 2px;
+    }
+    .cta-links a:hover { color: var(--white); }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      border-top: 1px solid var(--gray-mid);
+    }
+    footer a { color: #aaa; }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--gray-mid);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">Ali Hassan<span> ·</span></a>
+    <a href="https://calendly.com/ali_hassan01/30min?month=2026-06" target="_blank" class="nav-cta">Book a call →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="yc-badge">For YC founders &amp; early-stage B2B startups</div>
+    <h1>Build your outbound system.<br><em>Get in front of the right people.</em></h1>
+    <p class="sub">I set up cold email and LinkedIn outreach end-to-end — ICP, lead lists, sequences, CRM — so you stop relying on warm intros and start getting consistent customer conversations.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/ali_hassan01/30min?month=2026-06" target="_blank" class="btn-primary">Book a free call</a>
+      <a href="#case-studies" class="btn-secondary">See real results</a>
+    </div>
+    <p class="hero-note">30 minutes. No pitch. Just an honest look at your outbound situation.</p>
+  </div>
+</section>
+
+<div class="proof-bar">
+  <div class="container">
+    <p>Built outbound systems for <strong>early-stage B2B companies</strong> across legal, health-tech, SaaS, and dev tools. Every system is built end-to-end — not handed off to a template.</p>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">The problem</div>
+    <h2>Most early-stage founders are stuck on warm intros. That's not a pipeline.</h2>
+    <p>Warm intros are great for getting started. But they run out, they're unpredictable, and you can't scale them. At some point you need a system that brings in conversations you didn't already have a path to.</p>
+    <p>The problem is that cold outbound has a lot of moving parts and most founders don't have the time or background to figure all of them out between product sprints.</p>
+    <ul class="problem-list">
+      <li>You know roughly who your ICP is, but you haven't turned that into a targeted, verified lead list.</li>
+      <li>Cold email infrastructure — domain setup, warmup, deliverability, sequences — is a real project on its own.</li>
+      <li>LinkedIn outreach done wrong gets accounts flagged. Done right, it's a meaningful second channel.</li>
+      <li>Without a CRM, interested leads fall through the cracks and follow-ups don't happen.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- WHAT WE DO -->
+<section class="services">
+  <div class="container">
+    <div class="section-label">What I do</div>
+    <h2>I build the whole system, not just part of it.</h2>
+    <p class="intro">Cold outbound only works when all the pieces are set up correctly and working together. I handle everything from ICP to first reply.</p>
+    <div class="service-grid">
+      <div class="service-item">
+        <div class="icon">🎯</div>
+        <h3>ICP Definition</h3>
+        <p>We define your ideal customer profile with enough specificity to actually build a list — role, company size, funding stage, and the signals that indicate real buying intent.</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">📋</div>
+        <h3>Lead List &amp; Enrichment</h3>
+        <p>Targeted account lists built in Clay, enriched with Apollo, and validated through Bouncer. Verified emails only — no guessed addresses burning your sender reputation.</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">✉️</div>
+        <h3>Cold Email System</h3>
+        <p>Domain setup, warmup, and deliverability configured correctly from day one. Multi-step sequences written in a founder voice — focused on their problem, not your features.</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">💼</div>
+        <h3>LinkedIn Outreach</h3>
+        <p>Connection-first approach using HeyReach — clean requests, no-pitch openers, and follow-up messages that feel personal. Complements email without spamming.</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">🗂️</div>
+        <h3>CRM Setup</h3>
+        <p>HubSpot or GHL configured so leads land somewhere useful — tracked, staged, and easy to act on. Interested replies go straight to your attention, not a shared inbox black hole.</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">📝</div>
+        <h3>Sequence Copywriting</h3>
+        <p>Email and LinkedIn messages written to sound like you — specific to your ICP's pain point, short, and with a clear ask. GPT-4 personalisation at the first-line level where relevant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS BAR -->
+<div class="tools-bar">
+  <div class="container">
+    <p>Tools I work with</p>
+    <div class="tools-list">
+      <span class="tool-badge">Clay</span>
+      <span class="tool-badge">Apollo.io</span>
+      <span class="tool-badge">Instantly</span>
+      <span class="tool-badge">HeyReach</span>
+      <span class="tool-badge">HubSpot</span>
+      <span class="tool-badge">GoHighLevel</span>
+      <span class="tool-badge">Bouncer</span>
+      <span class="tool-badge">n8n</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="process">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2>Built fast. Handed over clean.</h2>
+    <p class="intro">I work quickly because early-stage startups can't wait two months for a strategy deck. Here's how a typical engagement runs.</p>
+    <div class="steps">
+      <div class="step">
+        <div>
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Day 1–4</div>
+          <h3>ICP &amp; Targeting Session</h3>
+          <p>We get specific about who you're reaching, what signal indicates a good lead, and what problem the outreach should lead with. This shapes everything else.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Day 4–10</div>
+          <h3>List Build &amp; Infrastructure</h3>
+          <p>Accounts filtered in Clay, contacts enriched and email-validated via Apollo and Bouncer. Email domains set up with proper warmup. CRM configured and ready.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Day 10–15</div>
+          <h3>Sequence Copy Written</h3>
+          <p>Email sequences and LinkedIn messages drafted — specific to your ICP, in your voice. You review and approve before anything goes out.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Day 15–17</div>
+          <h3>Campaigns Go Live</h3>
+          <p>Email sequences launch in Instantly. LinkedIn connection and follow-up flows run in HeyReach. Deliverability and reply tracking monitored closely in the first few days.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Ongoing</div>
+          <h3>Replies Managed &amp; System Handed Over</h3>
+          <p>Positive replies get flagged and moved to your calendar. At handover, you get a full walkthrough and a recorded training session so you can run it yourself going forward.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" style="background: var(--gray-light);">
+  <div class="container">
+    <div class="section-label">Why work with me</div>
+    <h2>A few things worth knowing upfront.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Everything is built, not templated</h3>
+        <p>Lead lists, copy, and sequences are built specifically for your ICP. I don't recycle generic templates across clients — that's how outbound stops working.</p>
+      </div>
+      <div class="why-item">
+        <h3>Deliverability is treated seriously</h3>
+        <p>Email infrastructure is set up correctly from day one — domain warmup, validation, sender limits. Getting into the inbox is a technical problem before it's a copy problem.</p>
+      </div>
+      <div class="why-item">
+        <h3>Speed matters at your stage</h3>
+        <p>Systems go live in one to two weeks, not two months. You don't have the runway to wait, and a good outbound system doesn't need that long to build.</p>
+      </div>
+      <div class="why-item">
+        <h3>You own it at the end</h3>
+        <p>Every engagement ends with a full handover — recorded walkthrough, training session, and a system you can run yourself or hand to a future hire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-studies" id="case-studies">
+  <div class="container">
+    <div class="section-label">Case studies</div>
+    <h2>What the work actually looks like.</h2>
+    <p class="intro">Two real campaigns I built end-to-end. Numbers are from live dashboards.</p>
+
+    <!-- CASE STUDY 1 -->
+    <div class="case-study">
+      <div class="cs-header">
+        <div>
+          <h3>Healthcare &amp; Dental Outreach</h3>
+          <div class="cs-type">Health-tech advisory firm · US market · Event-based targeting</div>
+        </div>
+        <div class="cs-outcome-badge">6 meetings<br>in 30 days</div>
+      </div>
+      <div class="cs-body">
+
+        <div class="cs-row">
+          <div class="cs-row-label">Company context</div>
+          <p>A health-tech advisory firm needed to reach decision-makers at companies attending healthcare and dental industry events across the US. They had no outbound system — prospecting was entirely manual and wasn't scaling.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">Problem before working together</div>
+          <p>Their team was spending significant time manually identifying contacts at each event — a process that didn't scale and left most potential prospects untouched. There was no automated way to enrich contacts, validate emails, or run sequences at volume without the list going stale before anyone could reach out.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">What was implemented</div>
+          <div class="cs-tags">
+            <span class="cs-tag">Exhibitor &amp; attendee list scraping (12+ events)</span>
+            <span class="cs-tag">Apollo.io enrichment via n8n</span>
+            <span class="cs-tag">Bouncer email validation</span>
+            <span class="cs-tag">Event-contextual email sequences</span>
+            <span class="cs-tag">VP / Director / C-Suite targeting</span>
+            <span class="cs-tag">Apollo Sequences</span>
+          </div>
+          <p style="margin-top:12px;">Exhibitor and attendee lists were pulled from 12+ healthcare and dental conference websites, then run through Apollo's API for company enrichment and contact mapping at VP, Director, and C-Suite level. Every email was validated through Bouncer before entering any sequence. Sequences were kept short and event-specific — each one referenced the conference and a pain point relevant to that role. The whole workflow ran in n8n, meaning new events could be ingested automatically each month.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">Results</div>
+          <div class="cs-stats">
+            <div class="cs-stat">
+              <div class="stat-num">3,500+</div>
+              <div class="stat-label">contacts / month (once live)</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">94%</div>
+              <div class="stat-label">verified email rate</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">&lt;1.8%</div>
+              <div class="stat-label">bounce rate</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">6.2%</div>
+              <div class="stat-label">reply rate</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">6</div>
+              <div class="stat-label">meetings in 30 days</div>
+            </div>
+          </div>
+          <p style="margin-top:16px;">The 3,500+ monthly figure reflects pipeline throughput once the workflow was fully live. New events were ingested automatically and fresh contacts delivered to the sequencer each month with no manual input required.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">Key learning</div>
+          <div class="cs-learning">
+            <strong>What made it work</strong>
+            Event context does a lot of the relevance work for you. Referencing a specific conference in the opening line isn't a trick, it's a genuine signal that the outreach isn't random. That specificity, combined with clean email validation, kept bounce rates low and reply rates healthy.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CASE STUDY 2 -->
+    <div class="case-study">
+      <div class="cs-header">
+        <div>
+          <h3>Legal Services Cold Outbound</h3>
+          <div class="cs-type">YC-backed law firm · Series A–C startups · First cold pipeline</div>
+        </div>
+        <div class="cs-outcome-badge">11 new clients<br>in 60 days</div>
+      </div>
+      <div class="cs-body">
+
+        <div class="cs-row">
+          <div class="cs-row-label">Company context</div>
+          <p>A law firm founded by Harvard Law graduates, backed by YC. Every single client they had came through YC referrals. The firm was solid but it had no way to grow outside the network it already had access to.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">Problem before working together</div>
+          <p>Referral-only growth works until it doesn't. They had no cold pipeline, no outbound system, and no process for reaching founders they hadn't already met. They needed to start generating clients outside the YC circle for the first time — which meant building something from scratch.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">What was implemented</div>
+          <div class="cs-tags">
+            <span class="cs-tag">ICP: Series A–C, FinTech / PropTech / HealthTech / Crypto</span>
+            <span class="cs-tag">Clay account filtering</span>
+            <span class="cs-tag">Apollo enrichment waterfall</span>
+            <span class="cs-tag">GPT-4 first-line personalisation</span>
+            <span class="cs-tag">5-touch email sequence (14 days)</span>
+            <span class="cs-tag">LinkedIn connection flow (HeyReach)</span>
+            <span class="cs-tag">Apollo Sequences + CRM</span>
+          </div>
+          <p style="margin-top:12px;">Target accounts were filtered in Clay by funding date, headcount, and vertical — then cross-referenced to find companies with no in-house legal hires and no contract tooling in their stack. Those two signals pointed clearly to companies buying legal externally. GPT-4 wrote a personalised first line per contact referencing their funding round, product category, and a specific legal risk common to their vertical. Email ran 5 touches over 14 days in Apollo Sequences. LinkedIn ran a clean connection-first flow in HeyReach — no-note connection request, followed by a short message after acceptance, and a light follow-up if no response.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">Results</div>
+          <div class="cs-stats">
+            <div class="cs-stat">
+              <div class="stat-num">820</div>
+              <div class="stat-label">accounts enriched</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">1,600+</div>
+              <div class="stat-label">contacts sequenced</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">48%</div>
+              <div class="stat-label">email open rate</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">5.4%</div>
+              <div class="stat-label">reply rate</div>
+            </div>
+            <div class="cs-stat">
+              <div class="stat-num">11</div>
+              <div class="stat-label">new clients in 60 days</div>
+            </div>
+          </div>
+          <p style="margin-top:16px;">Before this campaign, every single client had come through a referral. Within 60 days, 4 of the 11 new clients had no prior connection to the firm whatsoever — first time that had ever happened.</p>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-row-label">Key learning</div>
+          <div class="cs-learning">
+            <strong>What made it work</strong>
+            The ICP filter was the most important decision. Instead of targeting "startups that might need legal help," we identified a specific structural signal,  no in-house legal hire, no contract tooling, that pointed to companies actively buying legal services externally. Sharper targeting meant shorter sequences and faster conversions.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>Want to know what this looks like for your startup?</h2>
+    <p>Book a free 30-minute call. I'll look at your situation and tell you exactly what I'd build first.</p>
+    <a href="https://calendly.com/ali_hassan01/30min?month=2026-06" target="_blank" class="btn-white">Book a call with Ali →</a>
+    <p class="cta-sub">No pitch. No retainer talk on the first call. Just a look at your outbound.</p>
+    <div class="cta-links">
+      <a href="https://www.linkedin.com/in/ali-hassan-bb1131b6/" target="_blank">LinkedIn</a>
+      <a href="mailto:ah15105@gmail.com">ah15105@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Ali Hassan · <a href="mailto:ah15105@gmail.com">ah15105@gmail.com</a> · <a href="https://www.linkedin.com/in/ali-hassan-bb1131b6/" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
